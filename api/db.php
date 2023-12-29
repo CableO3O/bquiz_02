@@ -145,6 +145,9 @@ function dd($array)
     echo "</pre>";
 }
 
+function to($url){
+    header("location:$url");
+}
 
 $Total=new DB('total');
 $User=new DB('user');
