@@ -24,7 +24,7 @@
     <div class="list-items">
         
     </div>
-    <div class="article"></div>
+    <div class="article" style="display: none;"></div>
 </fieldset>
 
 <script>
@@ -36,12 +36,16 @@
     })
     function getList(type){
         $.get("./api/get_list.php",{type},(list)=>{
-            $(".list-items").html(list)
+            $(".list-items").html(list);
+            $(".article").hide();
+            $(".list-items").show();
         })
     }
     function getNews(id){
         $.get("./api/get_news.php",{id},(news)=>{
-            $(".article").text(news);
+            $(".article").html(news);
+            $(".list-items").hide();
+            $(".article").show();
         })
     }
 </script>
