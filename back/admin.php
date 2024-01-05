@@ -12,8 +12,8 @@
             foreach ($rows as $row) {
             ?>
                 <tr>
-                    <td><?= $row['acc'];?></td>
-                    <td><?=str_repeat("*",mb_strlen($row['pw']));?></td>
+                    <td><?= $row['acc']; ?></td>
+                    <td><?= str_repeat("*", mb_strlen($row['pw'])); ?></td>
                     <td>
                         <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
                     </td>
@@ -21,12 +21,12 @@
             <?php
             }
             ?>
-    </table>
-    <div class="ct">
-        <input type="submit" value="確定刪除">
-        <input type="reset" value="清空選取">
-    </div>
-</form>
+        </table>
+        <div class="ct">
+            <input type="submit" value="確定刪除">
+            <input type="reset" value="清空選取">
+        </div>
+    </form>
 
     <span style="color:red">*請設定您要註冊的帳號及密碼(最長12個字元)</span>
     <table>
@@ -80,8 +80,8 @@
                     if (parseInt(res) == 1) {
                         alert("帳號重複")
                     } else {
-                        $.post("./api/reg.php", user, (res) => {
-                            alert("註冊完成，歡迎加入")
+                        $.post('./api/reg.php', user, (res) => {
+                            location.reload()
                         })
                     }
                 })
