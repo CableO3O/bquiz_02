@@ -38,10 +38,8 @@
     $(".tag").on('click',function(){
         $(".tag").removeClass('active');
         $(this).addClass('active');
-        let id=$(this).attr('id');
-        let newId=id.replace("sec",'section');
-        console.log(newId);
+        let id=$(this).attr('id').replace("sec",'section');
         $("section").hide();
-        $("#"+newId).show();
+        $("#"+id).show();
     })
 </script>
