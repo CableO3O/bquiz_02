@@ -21,10 +21,10 @@
 </fieldset>
 <fieldset class="news-list">
     <legend>文章列表</legend>
-    <div class="list-items">
+    <div class="list-items" style="display: none;">
         
     </div>
-    <div class="article" style="display: none;"></div>
+    <div class="article"></div>
 </fieldset>
 
 <script>
@@ -37,15 +37,13 @@
     function getList(type){
         $.get("./api/get_list.php",{type},(list)=>{
             $(".list-items").html(list);
-            $(".article").hide();
-            $(".list-items").show();
+            $(".article,.list-items").toggle();
         })
     }
     function getNews(id){
         $.get("./api/get_news.php",{id},(news)=>{
             $(".article").html(news);
-            $(".list-items").hide();
-            $(".article").show();
+            $(".article,.list-items").toggle();
         })
     }
 </script>
