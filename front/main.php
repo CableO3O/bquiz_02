@@ -5,6 +5,7 @@
         border: 1px solid black;
         margin-left: -1px;
         border-radius: 5px 5px 0 0;
+        background-color: #ccc;
     }
 
     .tags {
@@ -23,6 +24,7 @@
 
     .active {
         border-bottom: 1px solid white;
+        background-color: white;
     }
 </style>
 <div class="tags">
