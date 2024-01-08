@@ -38,7 +38,7 @@
     ?>
     </tr>
     </table>
-    <div class="ct">
+    <div>
         <?php
         if ($now - 1 > 0) {
             $prev = $now - 1;
@@ -68,4 +68,5 @@
             $("#p"+id).show();
         }
         )
+        
 </script>
