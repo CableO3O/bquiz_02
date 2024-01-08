@@ -21,7 +21,6 @@
 			z-index: 9999;
 			overflow: auto;
 			padding: 10px;
-			overflow: auto;
 		}
 	</style>
 </head>
