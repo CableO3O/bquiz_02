@@ -17,7 +17,7 @@
             <td><?=$que['text'];?></td>
             <td><?=$que['vote'];?></td>
             <td>
-                <a href="?do=result$id=<?=$que['id'];?>"></a>
+                <a href='?do=result&id=<?=$que['id'];?>'>結果</a>
             </td>
             <td>
                 <?php
