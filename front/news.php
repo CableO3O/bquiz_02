@@ -46,7 +46,7 @@
         }
         ?>
     </table>
-    <div class="ct">
+    <div>
         <?php
         if ($now - 1 > 0) {
             $prev = $now - 1;
@@ -75,11 +75,5 @@ $(".title").on('click',(e)=>{
     $("#s"+id).toggle();
     $("#a"+id).toggle();
 })
-
-function good(news) {
-    $.post("./api/good.php",{news},()=>{
-        location.reload();
-    })
-  }
 
 </script>
