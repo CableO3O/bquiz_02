@@ -13,12 +13,23 @@
             $pages = ceil($total / $div);
             $now = $_GET['p'] ?? 1;
             $start = ($now - 1) * $div;
-            $rows = $News->all(['sh' => 1],"order by `good` desc limit $start,$div");
-            foreach ($rows as $idx=>$row) {
+            $rows = $News->all(['sh' => 1], "order by `good` desc limit $start,$div");
+            foreach ($rows as $idx => $row) {
             ?>
         <tr>
-            <td><?= $row['title']; ?></td>
-            <td><?= mb_substr($row['news'], 0, 25); ?>...</td>
+            <td>
+                <div class="title" data-id="<?= $row['id']; ?>">
+                    <?= $row['title']; ?>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <?= mb_substr($row['news'], 0, 25); ?>...
+                </div>
+                <div class="pop" id="p<?= $row['id']; ?>">
+                    <pre><?= $row['news']; ?></pre>
+                </div>
+            </td>
             <td></td>
         </tr>
     <?php
@@ -48,3 +59,12 @@
         }
         ?>
 </fieldset>
+<script>
+    $(".title").hover(
+        function () {
+            $(".pop").hide();
+            let id=$(this).data("id");
+            $("#p"+id).show();
+        }
+        )
+</script>
