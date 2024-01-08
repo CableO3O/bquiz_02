@@ -27,22 +27,21 @@
                     <?= mb_substr($row['news'], 0, 25); ?>...
                 </div>
                 <div class="pop" id="p<?= $row['id']; ?>">
-                <h3 style="color: skyblue;"><?=$row['title'];?></h3>
+                    <h3 style="color: skyblue;"><?= $row['title']; ?></h3>
                     <pre><?= $row['news']; ?></pre>
                 </div>
             </td>
             <td>
-                <span id="g<?=$row['id'];?>"><?=$row['good'];?></span>個人說讚<img src="./icon/02B03.jpg" style="width: 25px;" alt="">
-                <?php 
-                    if (isset($_SESSION['user'])) {
-                        if ($Log->count(['news'=>$row['id'],'acc'=>$_SESSION['user']])>0) {
-                            echo "<a href=''>收回讚</a>";
-                        }
-                        else{
-                            echo "<a href=''>讚</a>";
-                        }
+                <span id="g<?= $row['id']; ?>"><?= $row['good']; ?></span>個人說讚<img src="./icon/02B03.jpg" style="width: 25px;" alt="">
+                <?php
+                if (isset($_SESSION['user'])) {
+                    if ($Log->count(['news' => $row['id'], 'acc' => $_SESSION['user']]) > 0) {
+                        echo "<a href='Javascript:good({$row['id']})'>收回讚</a>";
+                    } else {
+                        echo "<a href='Javascript:good({$row['id']})'>讚</a>";
                     }
-                    ?>
+                }
+                ?>
             </td>
         </tr>
     <?php
@@ -74,11 +73,18 @@
 </fieldset>
 <script>
     $(".title").hover(
-        function () {
+        function() {
             $(".pop").hide();
-            let id=$(this).data("id");
-            $("#p"+id).show();
+            let id = $(this).data("id");
+            $("#p" + id).show();
         }
-        )
-        
+    )
+
+    function good(news) {
+        $.post("./api/good.php", {
+            news
+        }, () => {
+            location.reload();
+        })
+    }
 </script>
