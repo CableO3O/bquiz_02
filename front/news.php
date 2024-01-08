@@ -7,7 +7,7 @@
             <th width="20%"></th>
         </tr>
         <?php
-        $total = $News->count();
+        $total = $News->count(['sh' => 1]);
         $div = 5;
         $pages = ceil($total / $div);
         $now = $_GET['p'] ?? 1;
