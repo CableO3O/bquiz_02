@@ -31,7 +31,9 @@
                     <pre><?= $row['news']; ?></pre>
                 </div>
             </td>
-            <td></td>
+            <td>
+                <span id="g<?=$row['id'];?>"><?=$row['good'];?></span>個人說讚<img src="./icon/02B03.jpg" style="width: 25px;" alt="">
+            </td>
         </tr>
     <?php
             }
